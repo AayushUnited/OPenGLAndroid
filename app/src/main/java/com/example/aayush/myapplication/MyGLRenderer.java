@@ -62,7 +62,7 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
         //int s = ((MyApplication) this.getApplication()).getSomeVariable();
 
         //if(s==0)
-        Matrix.setRotateM(mRotationMatrix, 0, angle,0 , 0,-1f);
+      Matrix.setRotateM(mRotationMatrix, 0, angle,0 , 0,-1f);
 
         Matrix.frustumM(mProjectionMatrix, 0, -ratio*zoom, ratio*zoom, -1*zoom, 1*zoom, 3, 7);
         Matrix.multiplyMM(scratch, 0, mMVPMatrix, 0, mRotationMatrix, 0);

@@ -148,7 +148,7 @@ public class Square {
                 else {
                     for (int i = 0; (i < strArray.length ); i++) {
                         if (i>0) {
-                            drawOrder[z++] = Integer.parseInt(strArray[i]);
+          //                  drawOrder[z++] = Integer.parseInt(strArray[i]);
                             //drawOrder[0] = Integer.parseInt(strArray[i]);
                         }
                     }
@@ -184,13 +184,13 @@ public class Square {
         vertexBuffer.position(0);
 
         // initialize byte buffer for the draw list
-        ByteBuffer dlb = ByteBuffer.allocateDirect(
+       // ByteBuffer dlb = ByteBuffer.allocateDirect(
                 // (# of coordinate values * 2 bytes per short)
-                drawOrder.length * 4);
-        dlb.order(ByteOrder.nativeOrder());
-        drawListBuffer = dlb.asIntBuffer();
-        drawListBuffer.put(drawOrder);
-        drawListBuffer.position(0);
+         //       drawOrder.length * 4);
+        //dlb.order(ByteOrder.nativeOrder());
+        //drawListBuffer = dlb.asIntBuffer();
+        //drawListBuffer.put(drawOrder);
+        //drawListBuffer.position(0);
 
         int vertexShader = MyGLRenderer.loadShader(GLES20.GL_VERTEX_SHADER,
                 vertexShaderCode);
@@ -251,11 +251,11 @@ public class Square {
 
         ;
         // Draw the triangle
-        GLES20.glDrawElements(
+       /* GLES20.glDrawElements(
                 GLES20.GL_TRIANGLES, drawOrder.length,
-                GLES20.GL_UNSIGNED_INT, drawListBuffer);
+                GLES20.GL_UNSIGNED_INT, drawListBuffer);*/
 
-        GLES20.glDrawArrays(GL10.GL_POINTS, 0, 4);
+        GLES20.glDrawArrays(GL10.GL_POINTS, 0, squareCoords.length);
 
         // Disable vertex array
         GLES20.glDisableVertexAttribArray(mPositionHandle);
